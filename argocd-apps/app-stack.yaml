@@ -72,7 +72,7 @@ kind: Deployment
 metadata:
   name: mongo-express-ui
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: mongo-ui
