@@ -1,0 +1,19 @@
+# Global configuration (credentials)
+secret:
+  username: "admin"
+  password: "SuperSecurePassword123"
+  url: "mongodb://admin:SuperSecurePassword123@mongo-service:27017/"
+
+# Database configurations
+mongodb:
+  image: "mongo"
+  tag: "7"
+  replicaCount: 1
+  storageRequest: "2Gi"
+
+# Web UI configurations
+ui:
+  image: "mongo-express"
+  tag: "1"
+  replicaCount: 2  # Scaled to 2 for HA!
+  nodePort: 30081
