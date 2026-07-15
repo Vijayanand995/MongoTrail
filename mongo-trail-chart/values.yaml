@@ -15,8 +15,8 @@ mongodb:
 ui:
   image: "mongo-express"
   tag: "1"
-  replicaCount: 2  # Scaled to 2 for HA!
-  nodePort: 30080
+
+
 
 # Add or update these defaults in your main values.yaml
 ingress:
