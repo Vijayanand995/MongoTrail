@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-cluster-apps
+  name: staging-app
   namespace: argocd
 spec:
   project: default
@@ -9,9 +9,34 @@ spec:
     repoURL: 'https://github.com/Vijayanand995/MongoTrail.git'
     targetRevision: HEAD
     path: mongo-trail-chart
+    helm:
+      valueFiles:
+        - ../values-staging.yaml # Points to our staging overrides on GitHub
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: staging           # Deploy to the staging namespace!
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: production-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Vijayanand995/MongoTrail.git'
+    targetRevision: HEAD
+    path: mongo-trail-chart
+    helm:
+      valueFiles:
+        - ../values-production.yaml # Points to our production overrides on GitHub
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: production          # Deploy to the production namespace!
   syncPolicy:
     automated:
       prune: true

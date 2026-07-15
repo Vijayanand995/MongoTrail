@@ -1,0 +1,8 @@
+# values-staging.yaml
+ui:
+  replicaCount: 1  # Staging only needs 1 replica to save resources
+  env:
+    NODE_ENV: "staging"
+
+mongo:
+  replicaCount: 1
