@@ -1,0 +1,12 @@
+# mongo-trail-chart/values-production.yaml
+ui:
+  replicaCount: 3
+  nodePort: 30082      # <--- This forces Production to use 30082 (no conflict with 30080!)
+  env:
+    NODE_ENV: "production"
+
+mongo:
+  replicaCount: 1
+
+ingress:
+  host: "production.mongotrail.local"  # <--- Forces production to own this domain

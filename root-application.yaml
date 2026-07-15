@@ -11,10 +11,10 @@ spec:
     path: mongo-trail-chart
     helm:
       valueFiles:
-        - ../values-staging.yaml # Points to our staging overrides on GitHub
+        - values-staging.yaml   # Points directly to the nested staging overrides
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: staging           # Deploy to the staging namespace!
+    namespace: staging
   syncPolicy:
     automated:
       prune: true
@@ -33,10 +33,10 @@ spec:
     path: mongo-trail-chart
     helm:
       valueFiles:
-        - ../values-production.yaml # Points to our production overrides on GitHub
+        - values-production.yaml # Points directly to the nested prod overrides
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: production          # Deploy to the production namespace!
+    namespace: production
   syncPolicy:
     automated:
       prune: true

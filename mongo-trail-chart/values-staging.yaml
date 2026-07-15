@@ -1,0 +1,12 @@
+# mongo-trail-chart/values-staging.yaml
+ui:
+  replicaCount: 1
+  nodePort: 30081      # <--- Staging gets 30081
+  env:
+    NODE_ENV: "staging"
+
+mongo:
+  replicaCount: 1
+
+ingress:
+  host: "staging.mongotrail.local"    # <--- Staging gets staging.mongotrail.local
