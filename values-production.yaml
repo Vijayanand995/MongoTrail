@@ -6,3 +6,6 @@ ui:
 
 mongo:
   replicaCount: 1
+
+ingress:
+  host: "production.mongotrail.local"  

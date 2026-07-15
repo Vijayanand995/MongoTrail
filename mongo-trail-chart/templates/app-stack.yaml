@@ -142,6 +142,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
+  - host: {{ .Values.ingress.host | quote }}
   - http:
       paths:
       - path: /
